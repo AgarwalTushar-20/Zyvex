@@ -89,3 +89,7 @@ npm install
 
 # run locally
 npm start
+
+Built with passion by a full-stack developer focused on modern UI/UX engineering.
+
+f you like this project, consider giving it a ⭐ on GitHub!
