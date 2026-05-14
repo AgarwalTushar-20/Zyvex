@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import "../assets/styles/Loader.scss";
 
 function Loader() {
-
-  const lines = [
-    "Loading...",
-    "Calibrating UI engine...",
-    "Establishing secure connection...",
-    "Welcome To My Digital Universe 👋"
-  ];
+  const lines = React.useMemo(
+    () => [
+      "Loading...",
+      "Calibrating UI engine...",
+      "Establishing secure connection...",
+      "Welcome To My Digital Universe 👋",
+    ],
+    []
+  );
 
   const [text, setText] = useState("");
   const [lineIndex, setLineIndex] = useState(0);
@@ -16,32 +18,26 @@ function Loader() {
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
 
-  // ✅ AUDIO (FIXED - separate useEffect)
+  // AUDIO
   useEffect(() => {
-   const audio = new Audio("/boot.mp3");
-  audio.volume = 0.3;
+    const audio = new Audio("/boot.mp3");
+    audio.volume = 0.3;
 
-  const enableSound = () => {
+    const enableSound = () => {
+      audio.play().catch((err) => console.log("Blocked:", err));
+      window.removeEventListener("pointerdown", enableSound);
+    };
 
-    audio.play()
-      .then(() => console.log("Audio playing"))
-      .catch((err) => console.log("Blocked:", err));
+    window.addEventListener("pointerdown", enableSound);
 
-    window.removeEventListener("pointerdown", enableSound);
-  };
+    return () => {
+      window.removeEventListener("pointerdown", enableSound);
+    };
+  }, []);
 
-  window.addEventListener("pointerdown", enableSound);
-
-  return () => {
-    window.removeEventListener("pointerdown", enableSound);
-  };
-
-}, []);
-  // ✅ PROGRESS BAR
+  // PROGRESS BAR
   useEffect(() => {
-
     const interval = setInterval(() => {
-
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
@@ -49,16 +45,13 @@ function Loader() {
         }
         return prev + 1;
       });
-
     }, 40);
 
     return () => clearInterval(interval);
-
   }, []);
 
-  // ✅ TYPING EFFECT
+  // TYPING EFFECT
   useEffect(() => {
-
     if (lineIndex >= lines.length) {
       setTimeout(() => setDone(true), 800);
       return;
@@ -67,34 +60,25 @@ function Loader() {
     const currentLine = lines[lineIndex];
 
     const timeout = setTimeout(() => {
-
       if (charIndex < currentLine.length) {
-
         setText((prev) => prev + currentLine.charAt(charIndex));
-
         setCharIndex((prev) => prev + 1);
-
       } else {
-
         setText((prev) => prev + "\n");
-
         setLineIndex((prev) => prev + 1);
-
         setCharIndex(0);
       }
-
     }, 25);
 
     return () => clearTimeout(timeout);
 
+    // ⚠️ IMPORTANT: DO NOT add `lines` here (causes loop)
   }, [charIndex, lineIndex]);
 
   if (done) return null;
 
   return (
-
     <div className="loader-wrapper">
-
       {/* MATRIX BACKGROUND */}
       <div className="matrix"></div>
 
@@ -103,7 +87,6 @@ function Loader() {
 
       {/* TERMINAL */}
       <div className="terminal">
-
         <div className="header">
           <span className="dot red"></span>
           <span className="dot yellow"></span>
@@ -124,7 +107,6 @@ function Loader() {
         </div>
 
         <div className="percent">{progress}%</div>
-
       </div>
     </div>
   );
