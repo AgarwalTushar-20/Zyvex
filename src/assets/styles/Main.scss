@@ -1,0 +1,798 @@
+.dark-mode .about-section {
+    background: #020412;
+}
+
+body {
+
+    background: #020412;
+
+    overflow-x: hidden;
+}
+
+.main-container {
+
+    position: relative;
+
+    background: #020412;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    z-index: 1;
+}
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 0 10%;
+
+    background: #020412;
+
+    z-index: 1;
+}
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+    position: absolute;
+    inset: -100%;
+
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.9), transparent),
+        radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,.8), transparent),
+        radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,.9), transparent),
+        radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.7), transparent),
+        radial-gradient(2px 2px at 10% 90%, rgba(255,255,255,.9), transparent),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,.8), transparent),
+        radial-gradient(2px 2px at 80% 40%, rgba(255,255,255,.9), transparent),
+        radial-gradient(1px 1px at 30% 50%, rgba(255,255,255,.8), transparent),
+        radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,.9), transparent),
+        radial-gradient(1px 1px at 15% 60%, rgba(255,255,255,.7), transparent),
+        radial-gradient(2px 2px at 95% 10%, rgba(255,255,255,.8), transparent),
+        radial-gradient(1px 1px at 5% 20%, rgba(255,255,255,.9), transparent),;
+
+    background-size: 900px 900px;
+
+    animation: starsMove 5s linear infinite;
+
+    opacity: 100;
+
+    z-index: -3;
+}
+
+/* =========================
+   BLACK HOLE
+========================= */
+
+.blackhole {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at center,
+            rgba(0,0,0,1) 18%,
+            rgba(15,0,40,0.95) 28%,
+            rgba(90,0,255,0.9) 42%,
+            rgba(170,0,255,0.45) 58%,
+            rgba(140,0,255,0.15) 72%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 60px rgba(244, 243, 245, 0.8),
+        0 0 120px rgba(121, 8, 226, 0.5),
+        0 0 180px rgba(132, 0, 255, 0.25);
+
+    filter: blur(10px);
+
+    animation:
+        rotateHole 30s linear infinite,
+       
+}
+
+/* OUTER RING */
+
+.blackhole::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -40px;
+
+    border-radius: 50%;
+
+    border: 3px solid rgba(180, 0, 255, 0.45);
+
+    border-top: 3px solid rgba(255,255,255,0.9);
+
+    filter: blur(2px);
+
+    animation: ringRotate 6s linear infinite;
+}
+
+/* SECOND GLOW RING */
+
+.blackhole::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(120,0,255,0.4);
+
+    filter: blur(6px);
+
+    animation: ringRotateReverse 10s linear infinite;
+}
+
+/* RING ANIMATION */
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ringRotateReverse {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+/* =========================
+   CONTENT
+========================= */
+
+.about-section .content {
+    position: relative;
+    z-index: 5;
+
+    text-align: left;
+}
+
+.about-section .content h1 {
+    font-size: 6rem;
+    color: white;
+
+    margin: 0;
+}
+
+.about-section .content p {
+    font-size: 2rem;
+    color: #d6d6d6;
+
+    margin-top: 20px;
+}
+
+.social_icons {
+    display: flex;
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+    a {
+        color: white;
+        font-size: 2rem;
+
+        transition: 0.3s;
+    }
+
+    a:hover {
+        color: #b026ff;
+        transform: scale(1.1);
+    }
+}
+
+.mobile_social_icons {
+    display: none;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.about-section .image-wrapper {
+    position: relative;
+    z-index: 5;
+}
+
+.about-section .image-wrapper img {
+    width: 220px;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 20px rgba(221, 209, 232, 0.9),
+        0 0 80px rgba(133, 131, 136, 0.6);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes rotateHole {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floatingHole {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    25% {
+        transform: translate(30px, -20px);
+    }
+
+    50% {
+        transform: translate(-20px, 20px);
+    }
+
+    75% {
+        transform: translate(20px, 10px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes starsMove {
+    from {
+        transform: translate3d(0,0,0);
+    }
+
+    to {
+        transform: translate3d(-500px,-250px,0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .about-section {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 120px 20px;
+    }
+
+    .about-section .content {
+        text-align: center;
+    }
+
+    .about-section .content h1 {
+        font-size: 3.5rem;
+    }
+
+    .about-section .content p {
+        font-size: 1.4rem;
+    }
+
+    .about-section .image-wrapper img {
+        width: 160px;
+    }
+
+    .blackhole {
+        width: 500px;
+        height: 500px;
+    }
+
+    .social_icons {
+        display: none;
+    }
+
+    .mobile_social_icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+
+        margin-top: 20px;
+
+        a {
+            color: white;
+            font-size: 2rem;
+        }
+    }
+}
+
+/* =========================
+   SCROLL TO TOP BUTTON
+========================= */
+
+.scroll-to-top {
+    position: fixed;
+
+    bottom: 30px;
+    right: 30px;
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(135deg, #7b2ff7, #c84cff);
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    box-shadow:
+        0 0 20px rgba(168, 85, 247, 0.5);
+
+    transition: all 0.3s ease;
+
+    animation: pulseGlow 2s infinite;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px) scale(1.08);
+
+    box-shadow:
+        0 0 30px rgba(168, 85, 247, 0.8);
+}
+
+.scroll-to-top svg {
+    font-size: 2rem;
+}
+
+/* PULSE EFFECT */
+
+@keyframes pulseGlow {
+
+    0% {
+        box-shadow:
+            0 0 15px rgba(168, 85, 247, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(168, 85, 247, 0.8);
+    }
+
+    100% {
+        box-shadow:
+            0 0 15px rgba(168, 85, 247, 0.4);
+    }
+}
+.typing-text {
+    font-size: 1.5em;
+    color: #ffffff;
+    font-weight: 500;
+    min-height: 40px;
+}
+
+/* Blinking cursor */
+.typing-text span::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 3px;
+    color: #c084fc;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.website-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.website-logo:hover {
+    transform: scale(1.08);
+}
+/* =========================
+   PREMIUM FLOATING NAVBAR
+========================= */
+
+.navbar-fixed-top {
+
+    position: fixed;
+
+    top: 22px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 86%;
+
+    z-index: 999;
+
+    transition: all 0.4s ease;
+}
+
+/* NAVBAR CONTAINER */
+
+.navigation-bar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 24px !important;
+
+    border-radius: 24px;
+
+    background:
+        rgba(8, 12, 28, 0.55);
+
+    backdrop-filter: blur(22px);
+
+    border:
+        1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 0 40px rgba(123,47,247,.10),
+        0 0 80px rgba(123,47,247,.04);
+
+    overflow: hidden;
+
+    position: relative;
+
+    transition: 0.4s ease;
+}
+
+/* animated glow line */
+
+.navigation-bar::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 200%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(192,132,252,.8),
+            transparent
+        );
+
+    animation: navbarGlow 6s linear infinite;
+}
+
+@keyframes navbarGlow {
+
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(50%);
+    }
+}
+
+/* =========================
+   LOGO SECTION
+========================= */
+
+.logo-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+/* logo box */
+
+.logo-box {
+
+    position: relative;
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(123,47,247,.22),
+            rgba(159,68,255,.10)
+        );
+
+    border:
+        1px solid rgba(168,85,247,.25);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.22);
+
+    transition: 0.4s ease;
+}
+
+/* rotating glow */
+
+.logo-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140%;
+
+    height: 140%;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            transparent,
+            rgba(192,132,252,.45),
+            transparent
+        );
+
+    animation: rotateGlow 5s linear infinite;
+}
+
+@keyframes rotateGlow {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-box img {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 34px;
+
+    height: 34px;
+
+    object-fit: contain;
+}
+
+.logo-box:hover {
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 30px rgba(168,85,247,.45);
+}
+
+/* =========================
+   BRAND NAME
+========================= */
+
+.brand-name {
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #c084fc,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.nav-links button {
+
+    position: relative;
+
+    color: white !important;
+
+    font-size: 15px !important;
+
+    font-weight: 500 !important;
+
+    text-transform: none !important;
+
+    padding: 10px 16px !important;
+
+    border-radius: 12px !important;
+
+    transition: 0.3s ease !important;
+
+    overflow: hidden;
+}
+
+/* underline animation */
+
+.nav-links button::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 6px;
+
+    width: 0%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7b2ff7,
+            #c084fc
+        );
+
+    transition: 0.35s ease;
+
+    transform: translateX(-50%);
+}
+
+.nav-links button:hover {
+
+    background:
+        rgba(255,255,255,0.05) !important;
+
+    color: #c084fc !important;
+}
+
+.nav-links button:hover::after {
+
+    width: 65%;
+}
+
+/* =========================
+   CONTACT BUTTON
+========================= */
+
+.contact-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b2ff7,
+            #9f44ff
+        ) !important;
+
+    border-radius: 14px !important;
+
+    padding: 12px 24px !important;
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.45);
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.35s ease !important;
+}
+
+.contact-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 40px rgba(168,85,247,.75);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar-fixed-top {
+
+        width: 92%;
+
+        top: 16px;
+    }
+
+    .navigation-bar {
+
+        padding: 10px 18px !important;
+    }
+
+    .brand-name {
+
+        font-size: 1.2rem;
+    }
+
+    .logo-box {
+
+        width: 48px;
+
+        height: 48px;
+    }
+}

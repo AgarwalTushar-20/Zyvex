@@ -1,0 +1,229 @@
+.footer {
+
+    position: relative;
+
+    padding: 90px 20px 50px;
+
+    text-align: center;
+
+    background: #020412;
+
+    overflow: hidden;
+
+    border-top:
+        1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+        0 -10px 40px rgba(123,47,247,.08);
+}
+
+/* =========================
+   TOP GLOW LINE
+========================= */
+
+.footer-glow {
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 220px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #a855f7,
+            transparent
+        );
+
+    filter: blur(1px);
+
+    animation: footerGlow 4s linear infinite;
+}
+
+@keyframes footerGlow {
+
+    0% {
+        opacity: 0.5;
+        width: 180px;
+    }
+
+    50% {
+        opacity: 1;
+        width: 260px;
+    }
+
+    100% {
+        opacity: 0.5;
+        width: 180px;
+    }
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.footer-heading {
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    color: white;
+
+    margin-bottom: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #c084fc,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
+.footer-socials {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-bottom: 35px;
+}
+
+.footer-socials a {
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border:
+        1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(14px);
+
+    color: white;
+
+    transition: 0.35s ease;
+
+    box-shadow:
+        0 0 20px rgba(123,47,247,.08);
+}
+
+.footer-socials a:hover {
+
+    transform:
+        translateY(-6px)
+        scale(1.08);
+
+    background:
+        rgba(168,85,247,.14);
+
+    border:
+        1px solid rgba(192,132,252,.35);
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.35);
+}
+
+.footer-socials svg {
+
+    font-size: 2rem !important;
+}
+
+/* =========================
+   AVAILABILITY
+========================= */
+
+.footer-availability {
+
+    color: #cfcfcf;
+
+    font-size: 1rem;
+
+    margin-bottom: 18px;
+
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.footer-copy {
+
+    color: #8b8b8b;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .footer {
+
+        padding:
+            70px 20px 40px;
+    }
+
+    .footer-heading {
+
+        font-size: 1.5rem;
+
+        line-height: 1.5;
+    }
+
+    .footer-socials {
+
+        gap: 16px;
+    }
+
+    .footer-socials a {
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .footer-socials svg {
+
+        font-size: 1.7rem !important;
+    }
+
+    .footer-availability {
+
+        font-size: 0.95rem;
+    }
+
+    .footer-copy {
+
+        font-size: 0.8rem;
+    }
+}

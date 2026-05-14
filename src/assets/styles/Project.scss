@@ -1,0 +1,163 @@
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5% 10%;
+  text-align: left;
+  color: white;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+
+.projects-container .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+}
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.projects-container .projects-grid .project {
+  text-align: left;
+  padding: 10px;
+}
+
+
+/* =========================
+   GLOBAL H2 NEON FADE UNDERLINE (PROJECT SECTION)
+========================= */
+
+.projects-container h2 {
+  position: relative;
+  display: inline-block;
+
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+}
+
+/* neon fade underline */
+.projects-container h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 90px;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(123, 47, 247, 1) 0%,
+    rgba(168, 85, 247, 0.6) 50%,
+    rgba(192, 132, 252, 0) 100%
+  );
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 10px rgba(168, 85, 247, 0.7),
+    0 0 18px rgba(168, 85, 247, 0.35);
+}
+
+/* subtle hover expansion */
+.projects-container h2:hover::after {
+  width: 60px;
+  transition: 0.3s ease;
+}
+
+/* =========================
+   IMAGE ZOOM EFFECT
+========================= */
+
+.zoom {
+  border-radius: 8px;
+  transition: transform 0.25s ease;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+  .projects-container {
+    display: block;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .projects-container .projects-grid {
+    display: block;
+  }
+
+  .projects-container .projects-grid .project {
+    padding-bottom: 6%;
+  }
+
+  .project h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+/* =========================
+   MAIN PROJECT HEADING (FADE NEON UNDERLINE)
+========================= */
+
+.projects-container h1 {
+  position: relative;
+  display: inline-block;
+
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 700;
+
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+
+/* neon fade underline */
+.projects-container h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 300px;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(123, 47, 247, 1) 0%,
+    rgba(168, 85, 247, 0.6) 50%,
+    rgba(192, 132, 252, 0) 100%
+  );
+
+  border-radius: 10px;
+
+  /* soft glow fade */
+  box-shadow:
+    0 0 10px rgba(168, 85, 247, 0.7),
+    0 0 20px rgba(168, 85, 247, 0.35);
+
+  filter: blur(0.2px);
+}
+
+/* subtle hover extension (keeps fade effect) */
+.projects-container h1:hover::after {
+  width: 60px;
+  transition: 0.3s ease;
+}

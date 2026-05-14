@@ -1,0 +1,186 @@
+/* =========================
+   CONTACT SECTION (FULL WIDTH MODERN)
+========================= */
+
+#contact {
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #020412;
+  color: white;
+}
+
+/* container */
+.items-container {
+  width: 100%;
+}
+
+/* wrapper - NO CARD FEEL */
+.contact_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* heading */
+.contact_wrapper h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.contact_wrapper p {
+  color: #bdbdbd;
+  font-size: 1.1rem;
+}
+
+/* =========================
+   FORM LAYOUT
+========================= */
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* top row inputs */
+.form-flex {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+/* each input full width */
+.form-flex .MuiFormControl-root {
+  flex: 1;
+}
+
+/* =========================
+   MATERIAL UI INPUT FIX (IMPORTANT)
+========================= */
+
+/* input text visibility fix */
+.MuiInputBase-input {
+  color: white !important;
+}
+
+/* label color */
+.MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* border */
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* hover border */
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #a855f7 !important;
+}
+
+/* focus border */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #a855f7 !important;
+}
+
+/* background glass effect */
+.MuiOutlinedInput-root {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 12px !important;
+}
+
+/* =========================
+   MESSAGE BOX
+========================= */
+
+.body-form {
+  width: 100% !important;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.contact-form button {
+  align-self: flex-start;
+  padding: 12px 28px;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #7b2ff7, #a855f7) !important;
+  color: white !important;
+  font-weight: 600;
+  text-transform: none;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  #contact {
+    padding: 80px 5%;
+  }
+
+  .form-flex {
+    flex-direction: column;
+  }
+
+  .contact_wrapper h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* =========================
+   NEON STATIC UNDERLINE
+========================= */
+
+.contact_wrapper h1 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+/* neon underline */
+.contact_wrapper h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 70%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #7b2ff7,
+    #a855f7,
+    #c084fc
+  );
+
+  border-radius: 10px;
+
+  /* neon glow effect */
+  box-shadow:
+    0 0 8px rgba(168, 85, 247, 0.8),
+    0 0 18px rgba(168, 85, 247, 0.6),
+    0 0 28px rgba(168, 85, 247, 0.4);
+
+  opacity: 1;
+}

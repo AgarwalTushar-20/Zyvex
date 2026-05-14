@@ -1,0 +1,154 @@
+.floating-social {
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 14px;
+
+    z-index: 10;
+}
+
+/* MAIN BUTTON */
+
+.floating-trigger {
+
+    width: 62px;
+    height: 62px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b2ff7,
+            #c84cff
+        );
+
+    color: white;
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.5);
+
+    transition: 0.4s ease;
+}
+
+.floating-trigger svg {
+
+    font-size: 2rem !important;
+}
+
+/* ICONS */
+
+.floating-social a {
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(10px);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,.18);
+
+    transform:
+        translateX(-30px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        all 0.35s ease;
+}
+
+/* ICON STYLE */
+
+.floating-social a svg {
+
+    font-size: 1.7rem !important;
+}
+
+/* ACTIVE */
+
+.floating-social.active a {
+
+    transform:
+        translateX(0);
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+/* HOVER */
+
+.floating-social a:hover {
+
+    transform:
+        scale(1.1);
+
+    background:
+        rgba(168,85,247,0.2);
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.5);
+}
+
+/* BUTTON ROTATE */
+
+.floating-social.active .floating-trigger {
+
+    transform:
+        rotate(135deg);
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 768px) {
+
+    .floating-social {
+
+        left: 12px;
+    }
+
+    .floating-trigger {
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .floating-social a {
+
+        width: 48px;
+        height: 48px;
+    }
+}

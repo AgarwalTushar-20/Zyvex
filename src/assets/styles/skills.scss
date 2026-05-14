@@ -1,0 +1,495 @@
+.skills-container {
+    position: relative;
+    z-index: 2;
+
+    padding: 8% 10%;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    h1 {
+        font-size: 4.2rem;
+        font-weight: 800;
+
+        color: #ffffff;
+
+        margin-bottom: 70px;
+
+        letter-spacing: 1px;
+
+        position: relative;
+
+        width: fit-content;
+    }
+
+    h1::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -12px;
+
+        width: 70%;
+        height: 4px;
+
+        border-radius: 20px;
+
+        background: linear-gradient(
+            90deg,
+            #7b2ff7,
+            #c084fc,
+            transparent
+        );
+
+        box-shadow:
+            0 0 15px rgba(168, 85, 247, 0.7);
+    }
+
+    svg {
+        color: #ffffff;
+    }
+}
+
+/* =========================
+   GRID
+========================= */
+
+.skills-container .skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.skills-container .skills-grid .skill {
+    position: relative;
+
+    padding: 42px 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.05),
+            rgba(255,255,255,0.02)
+        );
+
+    border:
+        1px solid rgba(168, 85, 247, 0.15);
+
+    backdrop-filter: blur(18px);
+
+    overflow: hidden;
+
+    transition: 0.45s ease;
+
+    cursor: pointer;
+
+    transform-style: preserve-3d;
+
+    box-shadow:
+        0 0 20px rgba(111, 0, 255, 0.08);
+
+    isolation: isolate;
+}
+
+/* animated glow */
+
+.skills-container .skills-grid .skill::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -120px;
+    left: -120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.28),
+            transparent 70%
+        );
+
+    transition: 0.5s ease;
+
+    z-index: -1;
+}
+
+/* bottom glow */
+
+.skills-container .skills-grid .skill::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(168,85,247,0.06)
+        );
+
+    opacity: 0;
+
+    transition: 0.4s ease;
+
+    z-index: -1;
+}
+
+/* hover */
+
+.skills-container .skills-grid .skill:hover {
+    transform:
+        translateY(-14px)
+        rotateX(4deg)
+        rotateY(-4deg)
+        scale(1.02);
+
+    border:
+        1px solid rgba(192, 132, 252, 0.5);
+
+    box-shadow:
+        0 0 30px rgba(168, 85, 247, 0.25),
+        0 0 80px rgba(111, 0, 255, 0.16);
+}
+
+.skills-container .skills-grid .skill:hover::before {
+    transform: scale(1.4);
+
+    opacity: 1;
+}
+
+.skills-container .skills-grid .skill:hover::after {
+    opacity: 1;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.skills-container .skills-grid .skill svg {
+    font-size: 4rem;
+
+    margin-bottom: 28px;
+
+    color: #c084fc;
+
+    transition: 0.45s ease;
+
+    filter:
+        drop-shadow(0 0 10px rgba(192,132,252,0.25));
+}
+
+.skills-container .skills-grid .skill:hover svg {
+    transform:
+        scale(1.18)
+        rotate(8deg);
+
+    color: #ffffff;
+
+    filter:
+        drop-shadow(0 0 18px rgba(192,132,252,0.9));
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.skills-container .skills-grid .skill h3 {
+    font-size: 1.75rem;
+
+    color: white;
+
+    margin-bottom: 22px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.skills-container .skills-grid .skill p {
+    color: #d6d6d6;
+
+    line-height: 1.95;
+
+    font-size: 1rem;
+
+    margin-bottom: 32px;
+}
+
+/* =========================
+   TECH STACK
+========================= */
+
+.flex-chips {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    align-items: center;
+}
+
+.flex-chips .chip-title {
+    width: 100%;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    margin-bottom: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   CHIPS
+========================= */
+
+.chip {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        rgba(255, 255, 255, 0.08) !important;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    color: white !important;
+
+    height: 36px !important;
+
+    border-radius: 30px !important;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.35s ease !important;
+}
+
+/* shine effect */
+
+.chip::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transition: 0.5s ease;
+}
+
+.chip:hover::before {
+    left: 120%;
+}
+
+.chip span {
+    color: #ffffff !important;
+
+    font-size: 0.85rem;
+
+    font-family: 'Courier Prime', monospace;
+}
+
+.chip:hover {
+    transform:
+        translateY(-4px)
+        scale(1.05);
+
+    background:
+        rgba(168, 85, 247, 0.18) !important;
+
+    border:
+        1px solid rgba(192,132,252,0.3);
+
+    box-shadow:
+        0 0 18px rgba(168, 85, 247, 0.45);
+}
+
+/* =========================
+   FLOATING BACKGROUND GLOW
+========================= */
+
+.skills-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: 10%;
+    right: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(111,0,255,0.14),
+            transparent 70%
+        );
+
+    filter: blur(80px);
+
+    animation: floatGlow 8s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+.skills-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    bottom: 0;
+    left: -120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168,85,247,0.12),
+            transparent 70%
+        );
+
+    filter: blur(70px);
+
+    animation: floatGlow2 10s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floatGlow {
+
+    0% {
+        transform:
+            translateY(0px)
+            translateX(0px);
+    }
+
+    50% {
+        transform:
+            translateY(-30px)
+            translateX(-20px);
+    }
+
+    100% {
+        transform:
+            translateY(0px)
+            translateX(0px);
+    }
+}
+
+@keyframes floatGlow2 {
+
+    0% {
+        transform:
+            translateY(0px)
+            translateX(0px);
+    }
+
+    50% {
+        transform:
+            translateY(25px)
+            translateX(15px);
+    }
+
+    100% {
+        transform:
+            translateY(0px)
+            translateX(0px);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .skills-container .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .skills-container {
+        padding: 15% 6%;
+    }
+
+    .skills-container h1 {
+        font-size: 3rem;
+
+        text-align: center;
+
+        margin-inline: auto;
+    }
+
+    .skills-container h1::after {
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+
+    .skills-container .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container .skills-grid .skill {
+        padding: 35px 25px;
+    }
+
+    .skills-container .skills-grid .skill h3 {
+        font-size: 1.5rem;
+    }
+
+    .skills-container .skills-grid .skill p {
+        font-size: 0.95rem;
+    }
+}
