@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../assets/styles/Loader.scss";
 
-function Loader() {
-  const lines = React.useMemo(
-    () => [
-      "Loading...",
-      "Calibrating UI engine...",
-      "Establishing secure connection...",
-      "Welcome To My Digital Universe 👋",
-    ],
-    []
-  );
+const lines = [
+  "Loading...",
+  "Calibrating UI engine...",
+  "Establishing secure connection...",
+  "Welcome To My Digital Universe 👋"
+];
 
+function Loader() {
   const [text, setText] = useState("");
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -24,7 +21,7 @@ function Loader() {
     audio.volume = 0.3;
 
     const enableSound = () => {
-      audio.play().catch((err) => console.log("Blocked:", err));
+      audio.play().catch(() => {});
       window.removeEventListener("pointerdown", enableSound);
     };
 
@@ -50,7 +47,7 @@ function Loader() {
     return () => clearInterval(interval);
   }, []);
 
-  // TYPING EFFECT
+  // TYPING EFFECT (FIXED)
   useEffect(() => {
     if (lineIndex >= lines.length) {
       setTimeout(() => setDone(true), 800);
@@ -72,38 +69,23 @@ function Loader() {
 
     return () => clearTimeout(timeout);
 
-    // ⚠️ IMPORTANT: DO NOT add `lines` here (causes loop)
-  }, [charIndex, lineIndex]);
+  }, [charIndex, lineIndex]); // ✅ CLEAN (NO ESLINT ERROR NOW)
 
   if (done) return null;
 
   return (
     <div className="loader-wrapper">
-      {/* MATRIX BACKGROUND */}
       <div className="matrix"></div>
-
-      {/* SCAN LINE */}
       <div className="scanline"></div>
 
-      {/* TERMINAL */}
       <div className="terminal">
-        <div className="header">
-          <span className="dot red"></span>
-          <span className="dot yellow"></span>
-          <span className="dot green"></span>
-        </div>
-
         <pre className="text">
           {text}
           <span className="cursor">|</span>
         </pre>
 
-        {/* PROGRESS */}
         <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${progress}%` }}
-          />
+          <div className="progress-fill" style={{ width: `${progress}%` }} />
         </div>
 
         <div className="percent">{progress}%</div>
